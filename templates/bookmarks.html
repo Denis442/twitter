@@ -1,0 +1,39 @@
+{% extends 'base_end.html' %}
+
+{% block content %}
+<div id="inex_280" class="col-10 col-sm-10 col-md-8 col-lg-6">
+    <section class="position-relative border">
+              <h1 style="font-weight: bold;" class="text-dark fs-7 ps-2 pb-2">bookmarks</h1>
+        
+    </section>
+    <section>
+      <div style="height:300px ;" class="text-dark twitter-feed border">
+        {% if Book_list|length == 0 %}
+          <h1 style="text-align:center; padding-top: 90px;">You don't have any bookmarks</h1>
+        {% else %}
+          {% for el in Book_list %}
+          <div class="text-dark twitter-feed border  border-bottom-0 tweet_post">
+            <div class="px-3 py-2 border-bottom d-flex flex-nowrap first_post">
+                  <div class="d-flex justify-content-start">
+                    <img style="width: 40px; height:40px"  src="static/prifille_img/" alt="avatar" class="rounded-circle mt-2">
+                  </div>
+                  <div class="post-content">
+                    <div style="margin-top:10px;" class="post-header-text">
+                      <h3 class="ps-2 pt-1 fs-6 fw-bold">
+                        
+                        <span class="fs-6 fw-lighter">
+                          <span class="material-icons fs-6 text-info">
+                            verified </span>@
+                        </span>
+                      </h3>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% endif %}   
+      </div>
+    </section>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base_end.html' %}
+
+{% block content %}
+<div id="inex_280" class="col-10 col-sm-10 col-md-8 col-lg-6">
+    <section class="position-relative border border-top-0 border-bottom">
+    
+          <form action="/Update_Acount" method="POST" enctype="multipart/form-data">
+              <div class="backgrounf_fons">
+                <div class="Avatar_img">
+                  <img src="static/prifille_img/{{img}}"class="img-fluid custom-image" alt="" id="image">
+                  <span class="input-container">
+                    {% if isUser.id == id %}
+                      <label class="img_profile" for="upload">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </label>
+                    {% endif %}
+                  </span>
+                  <input type="file" name="file" id="upload" class="custom-input" accept=".png,.jpg">
+                </div>
+
+                {% if isUser.id == id %}
+                  <button style="background-color: #50b7f5 ;" class="btn btn-primary rounded-pill position-absolute top-1 end-0 mb-2 me-3" id="btn_update" type="submit">
+                    save
+                  </button>
+                  {% else %}
+                    <a type="button" style="background-color: #50b7f5 ;" class="btn btn-primary rounded-pill position-absolute top-1 end-0 mb-2 me-3" id="btn_update" href="/add_follow_profile/{{id}}">
+                      {% if isUser.is_following(user)%}
+                        Unfollow
+                      {% else %}
+                        Follow
+                      {% endif %}
+                    </a>
+                  {% endif %}
+                </button>
+              </div>
+              <div style="margin-top:55px; margin-left:14%" class="profile_contact">
+                <h3>{{user_name.username}}</h3>
+                <p>Hello twitter!!!</p>
+                <div style="display:flex; flex-wrap:wrap;">
+                      <span class="material-symbols-outlined">location_on</span>
+                      <p>City not</p>
+
+                      <span style="padding-left:15px;" class="material-symbols-outlined">link</span>
+                      <p style="padding-left:5px;">http://127.0.0.1:5000/profile </p>
+                
+                      <span style="padding-left:15px;" class="material-symbols-outlined">calendar_month</span>
+                      <p style="padding-left:5px;">joined: {{date.strftime('%B')}} {{date.year}}</p>
+                </div>
+                <div id="follow" style="display:flex;">
+
+                  <a href="/following$-{{id}}">
+                    <h5 id="follow" style="padding-right:25px; cursor: pointer;">{{nums_following}} Folllowing</h5>
+                  </a>
+                  <a href="/followers$-{{id}}">
+                    <h5 id="follow" style="cursor: pointer;">{{nums_followers}}  Followers</h5>
+                  </a>
+                  
+                </div>
+              </div>
+          </form>
+      
+      <nav style="font-size: 20px;" class="d-flex justify-content-evenly mt-3 max-w-100 tt">
+        <a class="text-dark text-decoration-none" href="#">Tweets</a>
+        <a class="text-dark text-decoration-none" href="#">media</a>
+        <a class="text-dark text-decoration-none" href="#">Likes</a>
+    </nav>
+    </section>
+    <section>
+        {% block contentprofile %}
+        {% endblock %}  
+
+    </section>
+  </div>
+
+{% endblock %}

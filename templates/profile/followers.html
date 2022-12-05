@@ -1,0 +1,26 @@
+{% extends '/profile/baseprofile.html' %}
+
+{% block contentprofile %}
+
+{% for el in followiers %}
+<div class="text-dark twitter-feed border  border-bottom-0 tweet_post">
+  <div class="px-3 py-2 border-bottom d-flex flex-nowrap first_post">
+        <div class="d-flex justify-content-start">
+          <img style="width: 40px; height:40px"  src="static/prifille_img/{{ el.image_file}}" alt="avatar" class="rounded-circle mt-2">
+        </div>
+        <div id="follow" class="post-content">
+          <div style="margin-top:10px;" class="post-header-text">
+            <h3 class="ps-2 pt-1 fs-6 fw-bold">
+              {{el.username}}
+              <span class="fs-6 fw-lighter">
+                <span class="material-icons fs-6 text-info">
+                  verified </span>@{{el.username}}
+              </span>
+            </h3>
+          </div>
+        </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

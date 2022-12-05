@@ -1,0 +1,83 @@
+{% extends '/profile/baseprofile.html' %}
+
+{% block contentprofile %}
+
+{% for el in tweet %}
+<div class="text-dark twitter-feed border  border-bottom-0">
+  <div class="px-3 py-2 border-bottom d-flex flex-nowrap first_post">
+    <a href="/{{el.user_id}}">
+      <div class="px-3 py-2 border-bottom d-flex flex-nowrap first_post tweet_post">
+        <div class="d-flex justify-content-start">
+          <div class="parent">
+              <img style="width: 40px; height:40px" src="static/prifille_img/{{ User_image.query.get(el.user_id).image_file}}" class="rounded-circle mt-2" alt="">
+          </div>
+        </div>
+        <div class="post-content">
+          <div class="d-flex justify-content-between">
+            <h3 class="ps-2 pt-1 fs-6 fw-bold">
+              {{User_image.query.get(el.user_id).username}}
+              <span class="fs-6 fw-lighter">
+                <span class="material-icons fs-6 text-info">
+                  verified </span>@{{User_image.query.get(el.user_id).username}} {{el.date_posted.day }}.{{el.date_posted.month }}.{{el.date_posted.year }}
+              </span>
+            </h3>
+          </div>
+          <p class="ms-2 post-text">{{el.content}}</p>
+        
+          {% if el.image_file != "" %}
+            <img src="static/prifille_img/{{el.image_file}}" alt="" class="mock-tweet-img ">
+          {% endif %}
+    </a>
+
+        <div class="d-flex  justify-content-between mt-2 gap-5 icons nav_twitt">
+          <button style="border: none; background-color:rgba(250, 250, 250, 0.1)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+            <span class="material-symbols-outlined">quick_phrases</span>
+          </button> 
+            <div>
+              <a href="/add_Bookmarks/{{el.id}}">
+                {% if Bookmark.query.filter_by(user_id = user.id,tweet_id = el.id).first() == None %}
+                <span style="color:black" class="material-symbols-outlined"> bookmark </span>
+                {% else %}
+                <span style="color:rgb(25, 192, 207)" class="material-symbols-outlined"> bookmark </span>   
+                {% endif %}   
+              </a>
+            </div>
+            <div style="min-width: 38px;"> 
+                <button class="btn_my" onclick="get_len('{{el.id}}',this)">
+                {% if user_like == None or Tweets_like.query.filter_by(user_id = user.id,tweet_id = el.id).first() == None %}
+                  <i class="like_{{el.id}}">&#128420</i>
+                  {% else %}
+                  <i class="like_{{el.id}}">&#128151</i>    
+                {% endif %}  
+              </button>                 
+      
+                  {% if Tweets_like.query.filter_by(tweet_id=el.id).all()|length != 0 %}
+                    <span class="num_like_{{el.id}}">{{Tweets_like.query.filter_by(tweet_id=el.id).all()|length}} </span>
+                    {% else %}
+                    <span class="num_like_{{el.id}}"></span>
+                  {% endif %}                    
+            </div> 
+            <div class="btn-group dropup">
+              <button class="btn_my" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="material-symbols-outlined">more_horiz</span>  
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="br" href="#">delete tweet</a>
+                </li>
+                <li>
+                  <a class="br" href="#">will share</a>
+                </li>
+                <li>
+                  <a class="br" href="#">hide</a>
+                </li>
+              </ul>
+            </div>
+        </div> 
+      </div>
+    </div> 
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

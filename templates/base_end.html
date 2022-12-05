@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block Noels %}
+
+    {% block content %}
+    {% endblock %}
+
+  <div class="col col-md-3 col-lg-3 d-none d-lg-flex justify-content-end end_bar">
+    <section class="end_bar">
+      <!-- Searchbar -->
+      <div style="background-color:#f7f9f9; color:black" id="searchbar" class="row rounded d-flex align-items-center mt-2 content">
+        <div class="col-1">
+          <svg id="serachicon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+          </svg>
+        </div>
+        <div class="col">
+          <input class="rounded bg-transparent border-0 py-2" type="text" placeholder="Search Twitter">
+        </div>
+      </div>
+      <!-- Trending -->
+      <div id="end_content" class="row flex-column mt-4 content rounded pl-2 pr-2">
+        <div class="col d-flex justify-content-between align-items-center rounded mt-3 ml-1 pt-2 pl-1">
+          <p class="h4 pb-3">
+              Trends for you
+          </p>
+          <div class="btn-group">
+            <div class="btn-group dropstart" role="group">
+              <button style="border: 0;" type="button" class="btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg class="mr-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"></path>
+                  <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"></path>
+                </svg>
+              </button>
+                <ul class="dropdown-menu">
+                  <li><a class="" href="#">Действие</a></li>
+                  <li><a class="" href="#">Другое действие</a></li>
+                  <li><a class="" href="#">Что-то еще здесь</a></li>
+                </ul>
+          </div>
+          </div>
+        </div>
+        <div>
+          <div class="col d-flex justify-content-between pl-1 ml-1">
+            <span>Tredning in Sweden</span>
+            <svg class="align-self-end mr-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
+            </svg>
+          </div>
+          <div class="row flex-column pl-1 ml-1">
+            <span><b>Bulletin</b></span>
+            <span>6,082 Tweets</span>
+          </div>
+          <div class="col d-flex justify-content-between pt-4 pl-1 ml-1">
+            <span>Technology - Trending</span>
+            <svg class="mr-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
+            </svg>
+          </div>
+          <div class="row flex-column pl-1 ml-1">
+            <span><b>Bitcoin</b></span>
+            <span>348K Tweets</span>
+          </div>
+          <div class="col d-flex justify-content-between pt-4 pl-1 ml-1">
+            <span>Automobile Brands - Trending</span>
+            <svg class="align-self-end mr-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path>
+            </svg>
+          </div>
+          <div class="row flex-column pl-1 ml-1">
+            <span><b>Tesla</b></span>
+            <span>142K Tweets</span>
+            <a class="pt-3 text-primary show" href="/explore">Show more</a>
+          </div>
+        </div>
+      </div>
+      <!-- Follow -->
+      <div id="end_content" class="row mt-3 pl-2 pr-2 pt-2 rounded content">
+        <div class="h4">
+          <p><b>Who to follow</b></p>
+        </div>
+      
+            <div class="d-flex py-2">
+              <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg" class="followImage">
+              </div>
+              <div class="row infoText p-2">
+                <span class=""><b>Elon Musk</b></span>
+                <span class="text-muted">@elonmusk follows you</span>
+              </div>
+              <div class="d-flex align-self-center pt-2">
+                <a type="button" class="btn rounded-pill btn_follow">
+                  Follow
+                </a>
+              </div>
+            </div>
+            
+            <div id="end_content" class="pt-2 pb-3 text-primary content rounded">
+              <span class="show">Show more</span>
+            </div>
+        </div>
+    </section> 
+  </div>
+
+{% endblock %}
